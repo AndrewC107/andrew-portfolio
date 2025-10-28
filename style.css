@@ -58,7 +58,7 @@ nav a:hover {
 
 /* ===== HOME ===== */
 .hero {
-  background: url('Images/night_sky.png') no-repeat center center/cover;
+  background: url('../Images/night_sky.png') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -124,7 +124,7 @@ nav a:hover {
 
 /* ===== ABOUT SECTION ===== */
 .about-section {
-  background: url('Images/AboutMe.jpg') no-repeat center center/cover;
+  background: url('../Images/AboutMe.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
