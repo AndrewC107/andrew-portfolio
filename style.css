@@ -294,6 +294,7 @@ nav a:hover {
   transition: transform 0.75s ease;
   border-radius: 24px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
 }
 
 .project-card--featured .project-card__inner {
@@ -304,8 +305,7 @@ nav a:hover {
   min-height: 280px;
 }
 
-.project-card:hover .project-card__inner,
-.project-card:focus-within .project-card__inner {
+.project-card.is-flipped .project-card__inner {
   transform: rotateY(180deg);
 }
 
@@ -377,6 +377,22 @@ nav a:hover {
   background: linear-gradient(160deg, rgba(12, 10, 45, 0.95), rgba(12, 30, 60, 0.9));
   transform: rotateY(180deg);
   gap: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.project-card__face--back::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card__face--back::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.project-card__face--back::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.35);
+  border-radius: 6px;
 }
 
 .project-card__face--back h3 {
@@ -408,6 +424,33 @@ nav a:hover {
   color: #9beaff;
   font-size: 0.8rem;
   letter-spacing: 0.4px;
+}
+
+.project-card__title-link {
+  color: #00e5ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card__title-link::after {
+  content: "↗";
+  font-size: 0.9em;
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
+.project-card__title-link:hover,
+.project-card__title-link:focus-visible {
+  color: #7bf5ff;
+  transform: translateY(-1px);
+}
+
+.project-card__title-link:hover::after,
+.project-card__title-link:focus-visible::after {
+  opacity: 1;
 }
 
 .impact-list {

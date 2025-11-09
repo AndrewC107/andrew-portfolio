@@ -224,11 +224,19 @@
                 <img src="https://images.unsplash.com/photo-1518976024611-28bf4b48222e?auto=format&fit=crop&w=800&q=80" alt="Password security illustration" loading="lazy">
               </div>
               <footer class="project-card__footer">
-                <h3>Password Guardian</h3>
+                <h3>
+                  <a class="project-card__title-link" href="https://github.com/AndrewC107/PasswordGuardian" target="_blank" rel="noopener">
+                    Password Guardian
+                  </a>
+                </h3>
               </footer>
             </div>
             <div class="project-card__face project-card__face--back">
-              <h3>Password Guardian</h3>
+              <h3>
+                <a class="project-card__title-link" href="https://github.com/AndrewC107/PasswordGuardian" target="_blank" rel="noopener">
+                  Password Guardian
+                </a>
+              </h3>
               <p>Interactive tool scoring password entropy, surfacing compromised credentials via HaveIBeenPwned, and recommending safer passphrases.</p>
               <ul class="project-card__tags">
                 <li>Vue</li>
@@ -341,6 +349,32 @@
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
+      });
+    });
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      const inner = card.querySelector('.project-card__inner');
+      if (!inner) return;
+
+      const toggleCard = () => {
+        card.classList.toggle('is-flipped');
+      };
+
+      inner.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+          return;
+        }
+        toggleCard();
+      });
+
+      card.addEventListener('keyup', (event) => {
+        if (event.target.closest('a')) {
+          return;
+        }
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleCard();
+        }
       });
     });
   </script>
